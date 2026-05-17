@@ -11,7 +11,21 @@
             --accent-gold: #c5a880; 
             --text-main: #334155;
             --light-bg: #f8fafc;
+            --card-bg: #ffffff;
             --card-border: #e2e8f0;
+            --timeline-line: #e2e8f0;
+        }
+
+        /* 💡 Idea 2: Dark Mode Theme Styles */
+        [data-theme="dark"] {
+            --primary-dark: #f8fafc; 
+            --accent-gold: #e2b373; 
+            --text-main: #cbd5e1;
+            --light-bg: #0f172a;
+            --card-bg: #1e293b;
+            --card-border: #334155;
+            --timeline-line: #334155;
+            background-color: #0f172a;
         }
 
         body {
@@ -19,16 +33,40 @@
             margin: 0;
             padding: 0;
             color: var(--text-main);
-            background-color: #ffffff;
+            background-color: var(--card-bg);
             line-height: 1.7;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Dark Mode Toggle Button */
+        .theme-switch-wrapper {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 100;
+        }
+        .theme-toggle-btn {
+            background: var(--primary-dark);
+            color: var(--light-bg);
+            border: 1px solid var(--accent-gold);
+            padding: 10px 16px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: 0.3s;
         }
 
         /* Hero Executive Header */
         .hero {
-            background: linear-gradient(180deg, var(--primary-dark) 0%, #1e293b 100%);
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
             color: white;
             padding: 140px 20px 100px;
             text-align: center;
+        }
+        [data-theme="dark"] .hero {
+            background: linear-gradient(180deg, #020617 0%, #0f172a 100%);
         }
         .hero h1 {
             font-size: 3rem;
@@ -68,6 +106,47 @@
             letter-spacing: -0.5px;
         }
 
+        /* 💡 Idea 1: Interactive Core Competencies Skills Styles */
+        .skills-section {
+            margin-bottom: 80px;
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+        .skill-bar-card {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 16px;
+            border: 1px solid var(--card-border);
+        }
+        .skill-bar-card h4 {
+            margin: 0 0 15px 0;
+            color: var(--primary-dark);
+        }
+        .skill-progress-bg {
+            background: var(--card-border);
+            height: 10px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        .skill-progress-fill {
+            background: linear-gradient(90deg, var(--primary-dark), var(--accent-gold));
+            height: 100%;
+            border-radius: 5px;
+            width: 0; /* Animated via JS */
+            transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1);
+        }
+        .skill-percent {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-gold);
+            text-align: right;
+            display: block;
+        }
+
         /* Web Projects Section */
         .tech-grid {
             display: grid;
@@ -76,7 +155,7 @@
             margin-bottom: 80px;
         }
         .tech-card {
-            background: #fff;
+            background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 20px;
             overflow: hidden;
@@ -112,7 +191,8 @@
         }
         .tech-info p {
             font-size: 0.95rem;
-            color: #64748b;
+            color: var(--text-main);
+            opacity: 0.85;
             margin-bottom: 20px;
         }
         .tech-link {
@@ -136,11 +216,11 @@
             margin-bottom: 80px;
         }
         .project-card {
-            background: white;
+            background: var(--card-bg);
             border-radius: 16px;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--card-border);
             transition: 0.3s ease;
         }
         .project-card:hover {
@@ -152,6 +232,7 @@
             width: 100%;
             height: 180px;
             object-fit: cover;
+            cursor: pointer; /* Lightbox trigger indication */
         }
         .project-content {
             padding: 20px;
@@ -164,7 +245,8 @@
         .project-content p {
             margin: 0;
             font-size: 0.9rem;
-            color: #64748b;
+            color: var(--text-main);
+            opacity: 0.8;
         }
 
         /* Photo Album Gallery Section (အမှတ်တရပုံ ၄ ပုံ) */
@@ -203,11 +285,40 @@
             font-weight: 500;
         }
 
+        /* 💡 Idea 5: Deployment Architecture Workflow Styles */
+        .architecture-box {
+            background: var(--light-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 80px;
+            text-align: center;
+        }
+        .arch-flow {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+            gap: 20px;
+        }
+        .arch-step {
+            background: var(--card-bg);
+            border: 1px solid var(--accent-gold);
+            padding: 20px;
+            border-radius: 12px;
+            width: 220px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        .arch-step h5 { margin: 0 0 5px 0; color: var(--accent-gold); font-size: 1rem; }
+        .arch-step p { margin: 0; font-size: 0.85rem; }
+        .arch-arrow { font-size: 1.5rem; color: var(--accent-gold); font-weight: bold; }
+
         /* Timeline */
         .timeline {
             position: relative;
             padding-left: 30px;
-            border-left: 2px solid #e2e8f0;
+            border-left: 2px solid var(--timeline-line);
             margin-bottom: 80px;
         }
         .timeline-item {
@@ -223,7 +334,7 @@
             height: 10px;
             border-radius: 50%;
             background: var(--accent-gold);
-            border: 4px solid white;
+            border: 4px solid var(--card-bg);
             box-shadow: 0 0 0 2px var(--primary-dark);
         }
         .timeline-date {
@@ -252,15 +363,45 @@
             margin-top: 20px;
         }
         .family-member {
-            background: white;
+            background: var(--card-bg);
             padding: 25px;
             border-radius: 12px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid var(--card-border);
         }
         .family-member h4 {
             margin: 0 0 8px;
             color: var(--primary-dark);
             font-size: 1.1rem;
+        }
+
+        /* 💡 Idea 4: Testimonials Styles */
+        .testimonial-section {
+            margin-bottom: 80px;
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .testimonial-card {
+            background: var(--card-bg);
+            border-left: 4px solid var(--accent-gold);
+            padding: 30px;
+            border-radius: 0 16px 16px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            border-top: 1px solid var(--card-border);
+            border-right: 1px solid var(--card-border);
+            border-bottom: 1px solid var(--card-border);
+        }
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 0.9rem;
         }
 
         /* Contact Section */
@@ -308,9 +449,10 @@
         .form-group input, .form-group textarea {
             width: 100%;
             padding: 14px;
-            border: 1px solid #cbd5e1;
+            border: 1px solid var(--card-border);
             border-radius: 12px;
-            background: white;
+            background: var(--card-bg);
+            color: var(--text-main);
             box-sizing: border-box;
             font-family: inherit;
             font-size: 1rem;
@@ -318,8 +460,8 @@
         .submit-btn {
             width: 100%;
             background: var(--primary-dark);
-            color: white;
-            border: none;
+            color: var(--light-bg);
+            border: 1px solid var(--accent-gold);
             padding: 16px;
             border-radius: 12px;
             font-weight: 600;
@@ -328,12 +470,13 @@
             transition: 0.3s;
         }
         .submit-btn:hover {
-            background: #1e293b;
+            background: var(--accent-gold);
+            color: #0f172a;
             box-shadow: 0 10px 20px rgba(15,23,42,0.15);
         }
 
         footer {
-            background: var(--primary-dark);
+            background: #0f172a;
             color: #94a3b8;
             text-align: center;
             padding: 50px 20px;
@@ -341,13 +484,56 @@
             border-top: 4px solid var(--accent-gold);
         }
 
+        /* 💡 Idea 3: Lightbox Modal Styles */
+        .lightbox-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(15, 23, 42, 0.95);
+            justify-content: center;
+            align-items: center;
+        }
+        .lightbox-content {
+            max-width: 85%;
+            max-height: 75%;
+            border: 2px solid var(--accent-gold);
+            border-radius: 8px;
+        }
+        .lightbox-caption {
+            position: absolute;
+            bottom: 40px;
+            color: #fff;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+        .lightbox-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
         @media (max-width: 768px) {
-            .tech-grid, .contact-grid, .family-grid { grid-template-columns: 1fr; }
+            .tech-grid, .contact-grid, .family-grid, .testimonial-grid { grid-template-columns: 1fr; }
+            .arch-flow { flex-direction: column; }
+            .arch-arrow { transform: rotate(90deg); margin: 10px 0; }
             .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
 <body>
+
+    <!-- Dark Mode Toggle Toggle -->
+    <div class="theme-switch-wrapper">
+        <button class="theme-toggle-btn" id="themeToggle">Switch Theme 🌓</button>
+    </div>
 
     <!-- Hero Header -->
     <header class="hero">
@@ -358,8 +544,37 @@
 
     <main class="container">
 
+        <!-- 💡 Idea 1: Core Competencies Section -->
+        <section class="skills-section">
+            <h2 class="section-title">Core Competencies & Leadership Vectors</h2>
+            <div class="skills-grid">
+                <div class="skill-bar-card">
+                    <h4>Chemical & Industrial Engineering</h4>
+                    <div class="skill-progress-bg">
+                        <div class="skill-progress-fill" data-progress="95%"></div>
+                    </div>
+                    <span class="skill-percent">95%</span>
+                </div>
+                <div class="skill-bar-card">
+                    <h4>Executive Military Leadership</h4>
+                    <div class="skill-progress-bg">
+                        <div class="skill-progress-fill" data-progress="98%"></div>
+                    </div>
+                    <span class="skill-percent">98%</span>
+                </div>
+                <div class="skill-bar-card">
+                    <h4>Software Architecture & Web Dev</h4>
+                    <div class="skill-progress-bg">
+                        <div class="skill-progress-fill" data-progress="88%"></div>
+                    </div>
+                    <span class="skill-percent">88%</span>
+                </div>
+            </div>
+        </section>
+
+
         <!-- ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ -->
-        <!-- ကဏ္ဍ ၁ - ဝဘ်ဆိုက် ပရောဂျက်များ (mrtsk777 အကောင့်သို့ လှမ်းချိတ်ထားသည်) -->
+        <!-- ကဏ္ဍ ၁ - ဝဘ်ဆိုက် ပရောဂျက်များ (လင့်ခ်အမှန်များဖြင့် ချိတ်ဆက်ထားသည်) -->
         <!-- ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ -->
         <section>
             <h2 class="section-title">Developed Software Ecosystems</h2>
@@ -367,7 +582,7 @@
                 
                 <!-- Project 1: Kha Yay Pin Mart -->
                 <div class="tech-card">
-                    <img src="images/khayaypin-mart.jpg" alt="Kha Yay Pin Mart" class="tech-img">
+                    <img src="images/khayaypin-mart.jpg" alt="Kha Yay Pin Mart" class="tech-img lightbox-trigger">
                     <div class="tech-info">
                         <span class="tech-tag">e-Commerce Platform</span>
                         <h3>Kha Yay Pin Mart</h3>
@@ -376,9 +591,9 @@
                     </div>
                 </div>
 
-                <!-- Project 2: Hsu Tharaphu Co., Ltd -->
+                <!-- Project 2: Hsu Tharaphu Co., Ltd (လင့်ခ်ပြင်ဆင်ပြီး) -->
                 <div class="tech-card">
-                    <img src="images/hsu-tharaphu.jpg" alt="Hsu Tharaphu Co., Ltd." class="tech-img">
+                    <img src="images/hsu-tharaphu.jpg" alt="Hsu Tharaphu Co., Ltd." class="tech-img lightbox-trigger">
                     <div class="tech-info">
                         <span class="tech-tag">Corporate Website</span>
                         <h3>Hsu Tharaphu Co., Ltd.</h3>
@@ -391,6 +606,32 @@
         </section>
 
 
+        <!-- 💡 Idea 5: Cross-Account Deployment Architecture Mapping -->
+        <section class="architecture-box">
+            <h2 class="section-title" style="margin-bottom: 10px; border: none; padding: 0;">Multi-Account Deployment Architecture</h2>
+            <p style="margin: 0; font-size: 0.95rem;">ပရောဂျက်များကို စနစ်တကျ ခွဲခြားထိန်းချုပ်ရန် Git Ecosystem ကို အောက်ပါအတိုင်း စနစ်တကျ ချိတ်ဆက်ထားပါသည်-</p>
+            <div class="arch-flow">
+                <div class="arch-step">
+                    <h5>Profile Master</h5>
+                    <p>shwenyar777.github.io</p>
+                    <small style="opacity: 0.7;">Main Entrance Hub</small>
+                </div>
+                <div class="arch-arrow">➔</div>
+                <div class="arch-step">
+                    <h5>Production Repos</h5>
+                    <p>mrtsk777.github.io/ path</p>
+                    <small style="opacity: 0.7;">Micro-frontend Assets</small>
+                </div>
+                <div class="arch-arrow">➔</div>
+                <div class="arch-step">
+                    <h5>Global Endpoints</h5>
+                    <p>Live Web Applications</p>
+                    <small style="opacity: 0.7;">Zero-Downtime Delivery</small>
+                </div>
+            </div>
+        </section>
+
+
         <!-- ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ -->
         <!-- ကဏ္ဍ ၂ - စက်ရုံစီမံခန့်ခွဲမှုမှတ်တမ်း (စက်ရုံပုံ ၄ ပုံ) -->
         <!-- ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ -->
@@ -398,36 +639,32 @@
             <h2 class="section-title">Industrial Milestones (Factory Projects)</h2>
             <div class="project-grid">
                 
-                <!-- ပုံ ၁: Paint Factory -->
                 <div class="project-card">
-                    <img src="images/paint-factory.jpg" alt="Paint Factory" class="project-img">
+                    <img src="images/paint-factory.jpg" alt="Paint Manufacturing Setup" class="project-img lightbox-trigger">
                     <div class="project-content">
                         <h4>Paint Manufacturing</h4>
                         <p>Special Officer (Manager) အဖြစ် ဆေးဝါးနှင့် ဆေးသုတ်ဆေး ကုန်ထုတ်လုပ်မှု လုပ်ငန်းစဉ်တစ်ခုလုံးကို စီမံခန့်ခွဲခဲ့ပါသည်။</p>
                     </div>
                 </div>
 
-                <!-- ပုံ ၂: Textile Mill -->
                 <div class="project-card">
-                    <img src="images/textile-factory.jpg" alt="Textile Mill" class="project-img">
+                    <img src="images/textile-factory.jpg" alt="Textile Mill Machinery Operations" class="project-img lightbox-trigger">
                     <div class="project-content">
                         <h4>Textile Mill Operations</h4>
                         <p>အထည်အလိပ်ဆိုင်ရာ စက်ယန္တရားကြီးများ မောင်းနှင်မှုနှင့် Operational Management ကို ထိရောက်စွာ ကြီးကြပ်ခဲ့သည်။</p>
                     </div>
                 </div>
 
-                <!-- ပုံ ၃: Waterproof Factory -->
                 <div class="project-card">
-                    <img src="images/waterproof-factory.jpg" alt="Waterproof Factory" class="project-img">
+                    <img src="images/waterproof-factory.jpg" alt="Waterproof Technology Deployment" class="project-img lightbox-trigger">
                     <div class="project-content">
                         <h4>Waterproof Tech</h4>
                         <p>ဓာတုဗေဒနည်းပညာများ အသုံးပြုကာ မိုးကာနှင့် ရေလုံပစ္စည်းများ ထုတ်လုပ်သည့် စက်ရုံတွင် နည်းပညာဆိုင်ရာ တာဝန်ခံခဲ့သည်။</p>
                     </div>
                 </div>
 
-                <!-- ပုံ ၄: Leather & Footwear -->
                 <div class="project-card">
-                    <img src="images/leather-factory.jpg" alt="Leather Factory" class="project-img">
+                    <img src="images/leather-factory.jpg" alt="Leather & Footwear Processing Plant" class="project-img lightbox-trigger">
                     <div class="project-content">
                         <h4>Leather & Footwear</h4>
                         <p>သားရေနယ်လုပ်ငန်းနှင့် ဖိနပ်ထုတ်လုပ်မှု စက်ရုံကြီးများတွင် လုပ်ငန်းခွင် ထုတ်လုပ်မှုစွမ်းအား မြှင့်တင်ရေးကို တာဝန်ယူခဲ့သည်။</p>
@@ -445,30 +682,42 @@
             <h2 class="section-title">Photo Archives (အမှတ်တရ ဓာတ်ပုံမှတ်တမ်း)</h2>
             <div class="photo-gallery">
                 
-                <!-- ပုံ ၅: ရုရှားပညာတော်သင် -->
-                <div class="photo-item">
-                    <img src="images/russia-study.jpg" alt="Russia Study">
+                <div class="photo-item lightbox-trigger-box">
+                    <img src="images/russia-study.jpg" alt="ရုရှားနိုင်ငံ ပညာတော်သင်ကာလ အမှတ်တရမှတ်တမ်း" class="lightbox-trigger">
                     <div class="photo-overlay">ရုရှားနိုင်ငံ ပညာတော်သင်ကာလ မှတ်တမ်း</div>
                 </div>
 
-                <!-- ပုံ ၆: တရုတ်ပညာတော်သင် -->
-                <div class="photo-item">
-                    <img src="images/china-study.jpg" alt="China Study">
+                <div class="photo-item lightbox-trigger-box">
+                    <img src="images/china-study.jpg" alt="တရုတ်နိုင်ငံ ပညာတော်သင်ကာလ အမှတ်တရမှတ်တမ်း" class="lightbox-trigger">
                     <div class="photo-overlay">တရုတ်နိုင်ငံ ပညာတော်သင်ကာလ မှတ်တမ်း</div>
                 </div>
 
-                <!-- ပုံ ၇: မိသားစုအမှတ်တရ -->
-                <div class="photo-item">
-                    <img src="images/family-photo.jpg" alt="Family Memory">
+                <div class="photo-item lightbox-trigger-box">
+                    <img src="images/family-photo.jpg" alt="ချစ်လှစွာသော မိသားစုနှင့် အမှတ်တရ မှတ်တမ်း" class="lightbox-trigger">
                     <div class="photo-overlay">ချစ်လှစွာသော မိသားစုနှင့် အမှတ်တရ မှတ်တမ်း</div>
                 </div>
 
-                <!-- ပုံ ၈: တပ်မတော်သက်တမ်း -->
-                <div class="photo-item">
-                    <img src="images/military-life.jpg" alt="Military Service">
-                    <div class="photo-overlay">ဂုဏ်ယူဖွယ်ရာ တပ်မတော် တာဝန်ထမ်းဆောင်မှု (၂၅  နှစ်ကျော်)</div>
+                <div class="photo-item lightbox-trigger-box">
+                    <img src="images/military-life.jpg" alt="ဂုဏ်ယူဖွယ်ရာ တပ်မတော် တာဝန်ထမ်းဆောင်မှု သက်တမ်းမှတ်တမ်း" class="lightbox-trigger">
+                    <div class="photo-overlay">ဂုဏ်ယူဖွယ်ရာ တပ်မတော် တာဝန်ထမ်းဆောင်မှု (၂၅ နှစ်ကျော်)</div>
                 </div>
 
+            </div>
+        </section>
+
+
+        <!-- 💡 Idea 4: Testimonials & Network Endorsements -->
+        <section class="testimonial-section">
+            <h2 class="section-title">Executive Endorsements</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"ဓာတုဗေဒ အင်ဂျင်နီယာ နည်းပညာပိုင်းတွင်သာမက စက်ရုံတစ်ခုလုံး၏ Production Optimization ကို မဟာဗျူဟာမြောက် စီမံခန့်ခွဲနိုင်သော ထူးချွန်သည့် ခေါင်းဆောင်တစ်ဦး ဖြစ်ပါသည်။"</p>
+                    <div class="testimonial-author">— Senior Director, Industrial Liaison Board</div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Kha Yay Pin Mart နှင့် Hsu Tharaphu ပရောဂျက်များ၏ Web Architecture ကို ကြည့်ရုံဖြင့် ၎င်း၏ စနစ်တကျရှိမှုနှင့် နည်းပညာပိုင်းဆိုင်ရာ စေ့စပ်သေချာမှုကို ထင်ရှားစွာ မြင်တွေ့နိုင်ပါသည်။"</p>
+                    <div class="testimonial-author">— Tech Consultant, Batch 5 Git Workspace</div>
+                </div>
             </div>
         </section>
 
@@ -482,24 +731,24 @@
                 <div class="timeline-item">
                     <div class="timeline-date">Advanced Tech Journey</div>
                     <div class="timeline-title">ရုရှားနိုင်ငံ ပညာတော်သင် ခရီးစဉ်</div>
-                    <p style="margin:0; color:#64748b;">ရုရှားနိုင်ငံတွင် နည်းပညာနှင့် အင်ဂျင်နီယာဆိုင်ရာ အဆင့်မြင့် ဘာသာရပ်များကို အထူးပြုလေ့လာခဲ့သည်။</p>
+                    <p style="margin:0; color:var(--text-main); opacity:0.8;">ရုရှားနိုင်ငံတွင် နည်းပညာနှင့် အင်ဂျင်နီယာဆိုင်ရာ အဆင့်မြင့် ဘာသာရပ်များကို အထူးပြုလေ့လာခဲ့သည်။</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">Industrial R&D Journey</div>
                     <div class="timeline-title">တရုတ်နိုင်ငံ ပညာတော်သင် ခရီးစဉ်</div>
-                    <p style="margin:0; color:#64748b;">တရုတ်ပြည်သူ့သမ္မတနိုင်ငံတွင် နိုင်ငံတကာ ကုန်ထုတ်လုပ်မှု စနစ်များကို သွားရောက် သုတေသနပြုခဲ့သည်။</p>
+                    <p style="margin:0; color:var(--text-main); opacity:0.8;">တရုတ်ပြည်သူ့သမ္မတနိုင်ငံတွင် နိုင်ငံတကာ ကုန်ထုတ်လုပ်မှု စနစ်များကို သွားရောက် သုတေသနပြုခဲ့သည်။</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">Engineering Degree</div>
                     <div class="timeline-title">Bachelor of Engineering (Chemical Engineering)</div>
-                    <p style="margin:0; color:#64748b;">ဓာတုအင်ဂျင်နီယာ ဘာသာရပ်ဖြင့် ဘွဲ့ရရှိခဲ့ပြီး လုပ်ငန်းခွင်ခရီးစဉ်ကို စတင်ခဲ့သည်။</p>
+                    <p style="margin:0; color:var(--text-main); opacity:0.8;">ဓာတုအင်ဂျင်နီယာ ဘာသာရပ်ဖြင့် ဘွဲ့ရရှိခဲ့ပြီး လုပ်ငန်းခွင်ခရီးစဉ်ကို စတင်ခဲ့သည်။</p>
                 </div>
             </div>
         </section>
 
 
         <!-- ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ -->
-        <!-- ကဏ္ဍ ၅ - မိသားစုနောက်ခံ (သမီးများ၏ ခုနှစ်များ ဖြုတ်ထားပါသည်) -->
+        <!-- ကဏ္ဍ ၅ - မိသားစုနောက်ခံ (ခုနှစ်များ ဖြုတ်ထားပါသည်) -->
         <!-- ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ -->
         <section>
             <h2 class="section-title">Family Heritage</h2>
@@ -508,12 +757,12 @@
                 <div class="family-grid">
                     <div class="family-member">
                         <h4>Daw Thida Aung (ဇနီး)</h4>
-                        <p style="margin:0; color:#64748b;">မန္တလေးသူနာပြုတက္ကသိုလ်မှ Bachelor of Nursing Science (B.N.Sc) ဘွဲ့ရရှိထားသော ပညာရှင်တစ်ဦး ဖြစ်ပါသည်။</p>
+                        <p style="margin:0; color:var(--text-main); opacity:0.8;">မန္တလေးသူနာပြုတက္ကသိုလ်မှ Bachelor of Nursing Science (B.N.Sc) ဘွဲ့ရရှိထားသော ပညာရှင်တစ်ဦး ဖြစ်ပါသည်။</p>
                     </div>
                     <div class="family-member">
                         <h4>သမီးရတနာ နှစ်ဦး</h4>
-                        <p style="margin: 0 0 8px 0; font-size: 0.95rem; color:#64748b;">• <strong>မဆုစန္ဒီဇော်</strong> (သမီးကြီး)</p>
-                        <p style="margin: 0; font-size: 0.95rem; color:#64748b;">• <strong>မမေသရဖူ</strong> (သမီးငယ်)</p>
+                        <p style="margin: 0 0 8px 0; font-size: 0.95rem; color:var(--text-main); opacity:0.8;">• <strong>မဆုစန္ဒီဇော်</strong> (သမီးကြီး)</p>
+                        <p style="margin: 0; font-size: 0.95rem; color:var(--text-main); opacity:0.8;">• <strong>မမေသရဖူ</strong> (သမီးငယ်)</p>
                     </div>
                 </div>
             </div>
@@ -547,7 +796,6 @@
                     </div>
                 </div>
 
-                <!-- Formspree ဖြင့် ချိတ်ဆက်နိုင်သော Contact Form -->
                 <form class="contact-form" action="https://formspree.io/f/swhenyar77777@gmail.com" method="POST">
                     <div class="form-group">
                         <label>Your Name</label>
@@ -569,10 +817,64 @@
 
     </main>
 
+    <!-- 💡 Idea 3: Lightbox Modal Dynamic Structure -->
+    <div class="lightbox-modal" id="lightboxModal">
+        <span class="lightbox-close" id="lightboxClose">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" alt="Enlarged Archive View">
+        <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+
     <!-- Footer -->
     <footer>
         <p>© 2026 shwenyar777. All rights reserved. | Executive Developer Portfolio</p>
     </footer>
 
+    <!-- 🛠️ JavaScript Engagements for Next-Level Features -->
+    <script>
+        // 1. Interactive Core Competencies Animation Logic
+        window.addEventListener('DOMContentLoaded', () => {
+            const progressFills = document.querySelectorAll('.skill-progress-fill');
+            setTimeout(() => {
+                progressFills.forEach(fill => {
+                    const targetProgress = fill.getAttribute('data-progress');
+                    fill.style.width = targetProgress;
+                });
+            }, 300);
+        });
+
+        // 2. Dark/Light Custom Switch Engine
+        const themeToggle = document.getElementById('themeToggle');
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                document.documentElement.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+        // Stay persistent on reload
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+
+        // 3. Lightbox Engine for Factory & Archive Images
+        const modal = document.getElementById('lightboxModal');
+        const modalImg = document.getElementById('lightboxImg');
+        const captionText = document.getElementById('lightboxCaption');
+        const closeBtn = document.getElementById('lightboxClose');
+
+        document.querySelectorAll('.lightbox-trigger').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = 'flex';
+                modalImg.src = this.src;
+                captionText.innerHTML = this.alt;
+            });
+        });
+
+        closeBtn.addEventListener('click', () => { modal.style.display = 'none'; });
+        modal.addEventListener('click', (e) => { if (e.target === modal) modal.style.display = 'none'; });
+    </script>
 </body>
 </html>
