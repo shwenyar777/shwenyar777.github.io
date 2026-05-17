@@ -136,7 +136,7 @@
             background: linear-gradient(90deg, var(--primary-dark), var(--accent-gold));
             height: 100%;
             border-radius: 5px;
-            width: 0; /* Animated via JS */
+            width: 0; 
             transition: width 1.5s cubic-bezier(0.1, 1, 0.1, 1);
         }
         .skill-percent {
@@ -232,7 +232,7 @@
             width: 100%;
             height: 180px;
             object-fit: cover;
-            cursor: pointer; /* Lightbox trigger indication */
+            cursor: pointer;
         }
         .project-content {
             padding: 20px;
@@ -348,7 +348,7 @@
             color: var(--primary-dark);
         }
 
-        /* Family Heritage Card */
+        /* Family Heritage Card & New Images Styles */
         .family-card-box {
             background: var(--light-bg);
             border-radius: 24px;
@@ -360,18 +360,48 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
-            margin-top: 20px;
+            margin-top: 25px;
         }
         .family-member {
             background: var(--card-bg);
             padding: 25px;
-            border-radius: 12px;
+            border-radius: 16px;
             border: 1px solid var(--card-border);
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            transition: 0.3s ease;
         }
-        .family-member h4 {
-            margin: 0 0 8px;
+        .family-member:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-3px);
+        }
+        .family-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-gold);
+            cursor: pointer;
+        }
+        .family-info {
+            flex: 1;
+        }
+        .family-info h4 {
+            margin: 0 0 6px 0;
             color: var(--primary-dark);
             font-size: 1.1rem;
+        }
+        .daughter-list-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+        .daughter-row {
+            display: flex;
+            align-items: center;
+            gap: 15px;
         }
 
         /* 💡 Idea 4: Testimonials Styles */
@@ -521,16 +551,17 @@
         }
 
         @media (max-width: 768px) {
-            .tech-grid, .contact-grid, .family-grid, .testimonial-grid { grid-template-columns: 1fr; }
+            .tech-grid, .contact-grid, .family-grid { grid-template-columns: 1fr; }
             .arch-flow { flex-direction: column; }
             .arch-arrow { transform: rotate(90deg); margin: 10px 0; }
             .hero h1 { font-size: 2.2rem; }
+            .family-member { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Dark Mode Toggle Toggle -->
+    <!-- Dark Mode Toggle -->
     <div class="theme-switch-wrapper">
         <button class="theme-toggle-btn" id="themeToggle">Switch Theme 🌓</button>
     </div>
@@ -574,7 +605,7 @@
 
 
         <!-- ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ -->
-        <!-- ကဏ္ဍ ၁ - ဝဘ်ဆိုက် ပရောဂျက်များ (လင့်ခ်အမှန်များဖြင့် ချိတ်ဆက်ထားသည်) -->
+        <!-- ကဏ္ဍ ၁ - ဝဘ်ဆိုက် ပရောဂျက်များ (mrtsk777 အကောင့်သို့ လှမ်းချိတ်ထားသည်) -->
         <!-- ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ -->
         <section>
             <h2 class="section-title">Developed Software Ecosystems</h2>
@@ -609,7 +640,7 @@
         <!-- 💡 Idea 5: Cross-Account Deployment Architecture Mapping -->
         <section class="architecture-box">
             <h2 class="section-title" style="margin-bottom: 10px; border: none; padding: 0;">Multi-Account Deployment Architecture</h2>
-            <p style="margin: 0; font-size: 0.95rem;">ပရောဂျက်များကို စနစ်တကျ ခွဲခြားထိန်းချုပ်ရန် Git Ecosystem ကို အောက်ပါအတိုင်း စနစ်တကျ ချိတ်ဆက်ထားပါသည်-</p>
+            <p style="margin: 0; font-size: 0.95rem;">ပရောဂျက်များကို စနစ်တကျ ခွဲခြားထိန်းချုပ်ရန် Git Ecosystem ကို အောက်ပါအတိုင်း စနစ်တကျ ချိတ်ဆက်ထားပါသည် -</p>
             <div class="arch-flow">
                 <div class="arch-step">
                     <h5>Profile Master</h5>
@@ -748,22 +779,48 @@
 
 
         <!-- ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ -->
-        <!-- ကဏ္ဍ ၅ - မိသားစုနောက်ခံ (ခုနှစ်များ ဖြုတ်ထားပါသည်) -->
+        <!-- ကဏ္ဍ ၅ - မိသားစုနောက်ခံ (ပုံအသစ်များ ထည့်သွင်းပြင်ဆင်ထားသည်) -->
         <!-- ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬ -->
         <section>
             <h2 class="section-title">Family Heritage</h2>
             <div class="family-card-box">
                 <p style="margin-top: 0; font-weight: 600; color: var(--primary-dark); font-size: 1.1rem;">အိမ်ထောင်ကျခဲ့ပြီး သမီးရတနာ ၂ ဦး ထွန်းကားခဲ့သော သာယာပျော်ရွှင်ဖွယ် မိသားစုဘဝ။</p>
                 <div class="family-grid">
+                    
+                    <!-- ဇနီးဖြစ်သူ ကဏ္ဍ (thidaaung.jpg) -->
                     <div class="family-member">
-                        <h4>Daw Thida Aung (ဇနီး)</h4>
-                        <p style="margin:0; color:var(--text-main); opacity:0.8;">မန္တလေးသူနာပြုတက္ကသိုလ်မှ Bachelor of Nursing Science (B.N.Sc) ဘွဲ့ရရှိထားသော ပညာရှင်တစ်ဦး ဖြစ်ပါသည်။</p>
+                        <img src="images/thidaaung.jpg" alt="Daw Thida Aung (ဇနီး)" class="family-avatar lightbox-trigger">
+                        <div class="family-info">
+                            <h4>Daw Thida Aung (ဇနီး)</h4>
+                            <p style="margin:0; color:var(--text-main); opacity:0.8; font-size: 0.9rem;">မန္တလေးသူနာပြုတက္ကသိုလ်မှ Bachelor of Nursing Science (B.N.Sc) ဘွဲ့ရရှိထားသော ပညာရှင်တစ်ဦး ဖြစ်ပါသည်။</p>
+                        </div>
                     </div>
+
+                    <!-- သမီးများ ကဏ္ဍ (hsusandyzaw.jpg နှင့် maytharaphu.jpg) -->
                     <div class="family-member">
-                        <h4>သမီးရတနာ နှစ်ဦး</h4>
-                        <p style="margin: 0 0 8px 0; font-size: 0.95rem; color:var(--text-main); opacity:0.8;">• <strong>မဆုစန္ဒီဇော်</strong> (သမီးကြီး)</p>
-                        <p style="margin: 0; font-size: 0.95rem; color:var(--text-main); opacity:0.8;">• <strong>မမေသရဖူ</strong> (သမီးငယ်)</p>
+                        <div class="daughter-list-container">
+                            
+                            <!-- သမီးကြီး -->
+                            <div class="daughter-row">
+                                <img src="images/hsusandyzaw.jpg" alt="မဆုစန္ဒီဇော် (သမီးကြီး)" class="family-avatar lightbox-trigger">
+                                <div class="family-info">
+                                    <h4 style="margin:0;">မဆုစန္ဒီဇော်</h4>
+                                    <p style="margin:0; font-size:0.85rem; color:var(--text-main); opacity:0.7;">သမီးကြီး ရတနာ</p>
+                                </div>
+                            </div>
+
+                            <!-- သမီးငယ် -->
+                            <div class="daughter-row">
+                                <img src="images/maytharaphu.jpg" alt="မမေသရဖူ (သမီးငယ်)" class="family-avatar lightbox-trigger">
+                                <div class="family-info">
+                                    <h4 style="margin:0;">မမေသရဖူ</h4>
+                                    <p style="margin:0; font-size:0.85rem; color:var(--text-main); opacity:0.7;">သမီးငယ် ရတနာ</p>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
+
                 </div>
             </div>
         </section>
@@ -829,7 +886,7 @@
         <p>© 2026 shwenyar777. All rights reserved. | Executive Developer Portfolio</p>
     </footer>
 
-    <!-- 🛠️ JavaScript Engagements for Next-Level Features -->
+    <!-- JavaScript Engagements -->
     <script>
         // 1. Interactive Core Competencies Animation Logic
         window.addEventListener('DOMContentLoaded', () => {
@@ -854,12 +911,11 @@
                 localStorage.setItem('theme', 'dark');
             }
         });
-        // Stay persistent on reload
         if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.setAttribute('data-theme', 'dark');
         }
 
-        // 3. Lightbox Engine for Factory & Archive Images
+        // 3. Lightbox Engine for Factory, Archive & Family Images
         const modal = document.getElementById('lightboxModal');
         const modalImg = document.getElementById('lightboxImg');
         const captionText = document.getElementById('lightboxCaption');
