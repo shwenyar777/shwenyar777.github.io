@@ -3,145 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Executive Portfolio | Chemical Engineer & Military Officer</title>
+    <title>Executive Portfolio | Chemical Engineer & Tech Developer</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-dark: #1a252f;
-            --accent-gold: #b38f4d;
-            --text-dark: #2c3e50;
-            --text-muted: #7f8c8d;
-            --light-bg: #f8f9fa;
+            --primary-dark: #0f172a; /* Futuristic Deep Slate Blue */
+            --accent-gold: #c5a880; /* Premium Champagne Gold */
+            --text-main: #334155;
+            --light-bg: #f8fafc;
+            --card-border: #e2e8f0;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            color: var(--text-dark);
+            color: var(--text-main);
             background-color: #ffffff;
-            line-height: 1.6;
+            line-height: 1.7;
         }
 
-        /* Hero Section */
+        /* Hero Executive Header */
         .hero {
-            background: linear-gradient(135deg, var(--primary-dark) 0%, #2c3e50 100%);
+            background: linear-gradient(180deg, var(--primary-dark) 0%, #1e293b 100%);
             color: white;
-            padding: 120px 20px 90px;
+            padding: 140px 20px 100px;
             text-align: center;
         }
         .hero h1 {
-            font-size: 2.8rem;
-            margin: 0 0 10px;
+            font-size: 3rem;
+            margin: 0 0 15px;
             font-weight: 700;
             letter-spacing: -1px;
         }
         .hero .subtitle {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: var(--accent-gold);
-            margin: 0 0 20px;
-            font-weight: 500;
+            margin: 0 0 25px;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
         }
         .hero p {
-            max-width: 750px;
+            max-width: 800px;
             margin: 0 auto;
-            font-size: 1.1rem;
-            opacity: 0.9;
+            font-size: 1.15rem;
+            opacity: 0.85;
+            font-weight: 300;
         }
 
-        /* Container */
+        /* Container Layout */
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 80px 20px;
         }
         .section-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--primary-dark);
             border-bottom: 2px solid var(--accent-gold);
-            padding-bottom: 10px;
-            margin-bottom: 40px;
+            padding-bottom: 12px;
+            margin-bottom: 50px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* Web Projects Section (Kha Yay Pin Mart & Hsu Tharaphu) */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            margin-bottom: 60px;
+        }
+        .tech-card {
+            background: #fff;
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: 0.4s ease;
+        }
+        .tech-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(15,23,42,0.08);
+            border-color: var(--accent-gold);
+        }
+        .tech-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background: #e2e8f0;
+        }
+        .tech-info {
+            padding: 30px;
+        }
+        .tech-tag {
+            color: var(--accent-gold);
+            font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
         }
-
-        /* Executive Brief Grid */
-        .brief-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-bottom: 40px;
-        }
-        .brief-card {
-            background: var(--light-bg);
-            padding: 25px;
-            border-radius: 12px;
-            border-left: 5px solid var(--primary-dark);
-        }
-        .brief-card h3 {
-            margin: 0 0 10px;
-            color: var(--accent-gold);
-        }
-
-        /* Industrial Projects Gallery (ဝေဝေဆာဆာ ကဏ္ဍ) */
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        .project-card {
-            background: white;
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border: 1px solid #e2e8f0;
-            transition: 0.3s ease;
-        }
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.1);
-            border-color: var(--accent-gold);
-        }
-        .project-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            background-color: #eaeaea;
-        }
-        .project-info {
-            padding: 25px;
-        }
-        .project-tag {
-            background: var(--light-bg);
-            color: var(--accent-gold);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            display: inline-block;
-            margin-bottom: 10px;
-        }
-        .project-info h3 {
-            margin: 0 0 10px;
-            font-size: 1.3rem;
+        .tech-info h3 {
+            margin: 0 0 12px;
+            font-size: 1.4rem;
             color: var(--primary-dark);
         }
-        .project-info p {
-            margin: 0;
-            color: var(--text-muted);
+        .tech-info p {
             font-size: 0.95rem;
+            color: #64748b;
+            margin-bottom: 20px;
+        }
+        .tech-link {
+            display: inline-block;
+            color: var(--primary-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border-bottom: 2px solid var(--accent-gold);
+            transition: 0.2s;
+        }
+        .tech-link:hover {
+            color: var(--accent-gold);
         }
 
-        /* Timeline (Education & International) */
+        /* Industrial Achievements Grid */
+        .industrial-section {
+            background: var(--light-bg);
+            padding: 60px 40px;
+            border-radius: 24px;
+            margin-bottom: 80px;
+        }
+        .ind-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .ind-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid #e2e8f0;
+            color: var(--primary-dark);
+        }
+
+        /* Contact & Office Hybrid Layout */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+        }
+        .office-info h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-top: 0;
+        }
+        .office-details {
+            margin-top: 30px;
+        }
+        .office-item {
+            margin-bottom: 25px;
+        }
+        .office-item strong {
+            color: var(--primary-dark);
+            display: block;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        
+        /* Premium Contact Form */
+        .contact-form {
+            background: var(--light-bg);
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid var(--card-border);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: var(--primary-dark);
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 12px;
+            background: white;
+            box-sizing: border-box;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+        .submit-btn {
+            width: 100%;
+            background: var(--primary-dark);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .submit-btn:hover {
+            background: #1e293b;
+            box-shadow: 0 10px 20px rgba(15,23,42,0.15);
+        }
+
+        /* Timeline */
         .timeline {
             position: relative;
             padding-left: 30px;
             border-left: 2px solid #e2e8f0;
-            margin-bottom: 60px;
+            margin-bottom: 80px;
         }
         .timeline-item {
             position: relative;
@@ -162,87 +252,36 @@
         .timeline-date {
             font-weight: 700;
             color: var(--accent-gold);
-            font-size: 1.1rem;
         }
         .timeline-title {
-            font-size: 1.2rem;
+            font-size: 1.25rem;
             font-weight: 600;
             margin: 5px 0;
             color: var(--primary-dark);
         }
 
-        /* Photo Album Gallery Section (ဓာတ်ပုံမှတ်တမ်းကဏ္ဍ) */
-        .photo-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-        .photo-item {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            height: 250px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: 0.5s ease;
-        }
-        .photo-item:hover img {
-            transform: scale(1.1);
-        }
-        .photo-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0,0,0,0.8));
-            padding: 15px;
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        /* Family Heritage */
-        .family-section {
-            background: var(--light-bg);
-            border-radius: 16px;
-            padding: 40px;
-            margin-bottom: 60px;
-        }
-        .family-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-        }
-        .family-member {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-        }
-        .family-member h4 {
-            margin: 0 0 8px;
-            color: var(--primary-dark);
+        /* Family Section Mini-Badge */
+        .family-badge {
+            border-left: 4px solid var(--accent-gold);
+            padding-left: 20px;
+            margin-top: 60px;
+            font-style: italic;
+            color: #475569;
         }
 
         /* Footer */
         footer {
             background: var(--primary-dark);
-            color: #a0aec0;
+            color: #94a3b8;
             text-align: center;
-            padding: 40px 20px;
+            padding: 50px 20px;
             font-size: 0.9rem;
-            border-top: 3px solid var(--accent-gold);
+            border-top: 4px solid var(--accent-gold);
         }
 
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2rem; }
-            .family-grid { grid-template-columns: 1fr; }
+            .tech-grid, .contact-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -250,139 +289,127 @@
 
     <!-- Hero Header -->
     <header class="hero">
-        <h1>Chemical Engineer & Military Executive</h1>
-        <div class="subtitle">Official Profile Portfolio</div>
-        <p>၂၅ နှစ်ကျော် စစ်ဘက်ဆိုင်ရာ တာဝန်ထမ်းဆောင်မှု၊ နိုင်ငံတကာ ပညာတော်သင် ခရီးစဉ်များနှင့် စက်မှုကုန်ထုတ်လုပ်ငန်းကြီးများတွင် စီမံခန့်ခွဲခဲ့သော ပရောဂျက် မှတ်တမ်းစုံလင်စွာ ထည့်သွင်းထားသည့် သမိုင်းစာမျက်နှာ။</p>
+        <h1>Chemical Engineer & Tech Innovator</h1>
+        <div class="subtitle">Elite Executive Portfolio</div>
+        <p>၂၅ နှစ်ကျော် စစ်ဘက်ဆိုင်ရာ မဟာဗျူဟာမြောက် ဦးဆောင်မှု၊ ကမ္ဘာ့အဆင့်မီ နည်းပညာရပ်ဝန်းနှင့် ဓာတုအင်ဂျင်နီယာ ကျွမ်းကျင်မှုများကို ပေါင်းစပ်ကာ ခေတ်မီဆန်းသစ်သော Web Applications များကို ဖန်တီးတည်ဆောက်နေသူ။</p>
     </header>
 
     <main class="container">
 
-        <!-- Section 1: Summary -->
+        <!-- Section 1: Core Web Projects (ဝဘ်ပရောဂျက်များ) -->
         <section>
-            <h2 class="section-title">Executive Summary</h2>
-            <div class="brief-grid">
-                <div class="brief-card">
-                    <h3>တပ်မတော် တာဝန်ထမ်းဆောင်မှု</h3>
-                    <p>နိုင်ငံတော်နှင့် တပ်မတော်အတွက် <strong>၂၅ နှစ်ကျော်</strong> သစ္စာရှိစွာ တာဝန်ထမ်းဆောင်ခဲ့ပြီး လက်ရှိအချိန်ထိ ဆက်လက်ထမ်းဆောင်ဆဲ ဖြစ်ပါသည်။</p>
-                </div>
-                <div class="brief-card">
-                    <h3>ပညာအရည်အချင်း</h3>
-                    <p><strong>၂၀၀၄ ခုနှစ်</strong>တွင် <strong>Chemical Engineering (B.E.)</strong> ဘွဲ့ကို အောင်မြင်စွာ ရရှိခဲ့ပြီး စက်မှုနည်းပညာပိုင်းဆိုင်ရာ အထူးပြုပညာရှင် ဖြစ်ပါသည်။</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Section 2: Industrial Projects (စီမံခန့်ခွဲခဲ့သော စက်ရုံပရောဂျက်ကြီးများ) -->
-        <section style="margin-top: 60px;">
-            <h2 class="section-title">Industrial Milestones (Projects)</h2>
-            <div class="project-grid">
+            <h2 class="section-title">Developed Software Ecosystems</h2>
+            <div class="tech-grid">
                 
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <img src="images/paint-factory.jpg" alt="Paint Factory" class="project-img">
-                    <div class="project-info">
-                        <span class="project-tag">Paint Manufacturing</span>
-                        <h3>Paint Production Plant</h3>
-                        <p>Special Officer (Manager) အဖြစ် တာဝန်ယူကာ ဆေးဝါးနှင့် ဆေးသုတ်ဆေး ကုန်ထုတ်လုပ်မှု လုပ်ငန်းစဉ်တစ်ခုလုံး၏ အရည်အသွေးကို စီမံခန့်ခွဲခဲ့ပါသည်။</p>
+                <!-- Project 1: Kha Yay Pin Mart -->
+                <div class="tech-card">
+                    <!-- သင့် images folder ထဲတွင် khayaypin-mart.jpg ဟု အမည်ပေးထားသော ပုံထည့်နိုင်ပါသည် -->
+                    <img src="images/khayaypin-mart.jpg" alt="Kha Yay Pin Mart" class="tech-img">
+                    <div class="tech-info">
+                        <span class="tech-tag">e-Commerce Platform</span>
+                        <h3>Kha Yay Pin Mart</h3>
+                        <p>အစားအသောက်၊ လူသုံးကုန်နှင့် လျှပ်စစ်ပစ္စည်းမျိုးစုံကို အမျိုးအစားအလိုက် စနစ်တကျ ရှာဖွေဝယ်ယူနိုင်ပြီး မြန်ဆန်ချောမွေ့သော Modern Online Mart Web Application ဖြစ်ပါသည်။</p>
+                        <a href="https://shwenyar777.github.io/khayaypin-mart/" class="tech-link" target="_blank">Launch Project →</a>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <img src="images/textile-factory.jpg" alt="Textile Mill" class="project-img">
-                    <div class="project-info">
-                        <span class="project-tag">Textile & Garment</span>
-                        <h3>Textile Mill Operations</h3>
-                        <p>အထည်အလိပ်ဆိုင်ရာ စက်ယန္တရားကြီးများ မောင်းနှင်မှုနှင့် ကုန်ကြမ်းမှ ကုန်ချောထွက်သည်အထိ အဆင့်ဆင့်သော Operational Management ကို ဦးဆောင်ခဲ့သည်။</p>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card">
-                    <img src="images/waterproof-factory.jpg" alt="Waterproof Factory" class="project-img">
-                    <div class="project-info">
-                        <span class="project-tag">Waterproof Tech</span>
-                        <h3>Waterproof Material Production</h3>
-                        <p>ဓာတုဗေဒနည်းပညာများ အသုံးပြုကာ မိုးကာနှင့် ရေလုံပစ္စည်းများ ထုတ်လုပ်သည့် စက်ရုံတွင် နည်းပညာဆိုင်ရာ တာဝန်ခံ မန်နေဂျာအဖြစ် တာဝန်ထမ်းဆောင်ခဲ့သည်။</p>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card">
-                    <img src="images/leather-factory.jpg" alt="Leather Factory" class="project-img">
-                    <div class="project-info">
-                        <span class="project-tag">Leather & Footwear</span>
-                        <h3>Leather & Footwear Manufacturing</h3>
-                        <p>သားရေနယ်လုပ်ငန်းနှင့် ဖိနပ်ထုတ်လုပ်မှု စက်ရုံကြီးများတွင် လုပ်ငန်းခွင် ဘေးအန္တရာယ်ကင်းရှင်းရေးနှင့် ထုတ်လုပ်မှုစွမ်းအား မြှင့်တင်ရေးကို ကြီးကြပ်ခဲ့သည်။</p>
+                <!-- Project 2: Hsu Tharaphu Co., Ltd -->
+                <div class="tech-card">
+                    <!-- သင့် images folder ထဲတွင် hsu-tharaphu.jpg ဟု အမည်ပေးထားသော ပုံထည့်နိုင်ပါသည် -->
+                    <img src="images/hsu-tharaphu.jpg" alt="Hsu Tharaphu Co., Ltd." class="tech-img">
+                    <div class="tech-info">
+                        <span class="tech-tag">Corporate Website</span>
+                        <h3>Hsu Tharaphu Co., Ltd.</h3>
+                        <p>ကုန်သွယ်မှုနှင့် ဝန်ဆောင်မှုလုပ်ငန်းများအတွက် ကမ္ဘာ့စံချိန်မီ တည်ဆောက်ထားသော လုပ်ငန်းသုံး Corporate Web Portal ဖြစ်ပြီး လုပ်ငန်းယုံကြည်မှုကို မြှင့်တင်ပေးနိုင်သော ဒီဇိုင်း ဖြစ်ပါသည်။</p>
+                        <a href="#" class="tech-link">View Repository →</a>
                     </div>
                 </div>
 
             </div>
         </section>
 
-        <!-- Section 3: Timeline & Global Milestones -->
+        <!-- Section 2: Industrial Special Officer Track -->
+        <section class="industrial-section">
+            <h3 style="margin-top:0; font-size: 1.5rem; color: var(--primary-dark);">Industrial Management Expertise</h3>
+            <p style="color: #64748b; margin: 0;">Chemical Engineering နောက်ခံဖြင့် အောက်ပါ အကြီးစား ကုန်ထုတ်လုပ်မှု စက်ရုံကြီးများတွင် <strong>Manager (Special Officer)</strong> အဖြစ် လုပ်ငန်းခွင် စီမံခန့်ခွဲမှုများကို ထိရောက်စွာ အကောင်အထည်ဖော်ခဲ့ပါသည်။</p>
+            <div class="ind-grid">
+                <div class="ind-card">Paint Production</div>
+                <div class="ind-card">Textile Operations</div>
+                <div class="ind-card">Waterproof Tech</div>
+                <div class="ind-card">Leather & Footwear</div>
+            </div>
+        </section>
+
+        <!-- Section 3: Education Timeline -->
         <section>
-            <h2 class="section-title">Global Education Timeline</h2>
+            <h2 class="section-title">International Education Timeline</h2>
             <div class="timeline">
                 <div class="timeline-item">
                     <div class="timeline-date">2012 - 2014</div>
-                    <div class="timeline-title">ရုရှားနိုင်ငံ ပညာတော်သင် ခရီးစဉ်</div>
-                    <p style="margin:0; color:var(--text-muted);">ရုရှားနိုင်ငံတွင် အဆင့်မြင့် ဓာတုဗေဒ အင်ဂျင်နီယာနှင့် နည်းပညာရပ်များကို အထူးပြုလေ့လာ ဆည်းပူးခဲ့သည်။</p>
+                    <div class="timeline-title">ရုရှားနိုင်ငံ ပညာတော်သင် ခရီးစဉ် (Advanced Tech)</div>
+                    <p style="margin:0; color:#64748b;">ရုရှားနိုင်ငံတွင် နည်းပညာနှင့် အင်ဂျင်နီယာဆိုင်ရာ အဆင့်မြင့် ဘာသာရပ်များကို အထူးပြုလေ့လာခဲ့သည်။</p>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-date">2006 - 2007</div>
-                    <div class="timeline-title">တရုတ်နိုင်ငံ ပညာတော်သင် ခရီးစဉ်</div>
-                    <p style="margin:0; color:var(--text-muted);">တရုတ်ပြည်သူ့သမ္မတနိုင်ငံတွင် နိုင်ငံတကာ ကုန်ထုတ်လုပ်မှု နည်းပညာနှင့် စက်မှုဖွံ့ဖြိုးတိုးတက်မှု ဗဟုသုတများကို သွားရောက်လေ့လာခဲ့သည်။</p>
+                    <div class="timeline-title">တရုတ်နိုင်ငံ ပညာတော်သင် ခရီးစဉ် (Industrial R&D)</div>
+                    <p style="margin:0; color:#64748b;">တရုတ်ပြည်သူ့သမ္မတနိုင်ငံတွင် နိုင်ငံတကာ ကုန်ထုတ်လုပ်မှု စနစ်များကို သွားရောက် သုတေသနပြုခဲ့သည်။</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2004</div>
+                    <div class="timeline-title">Bachelor of Engineering (Chemical Engineering)</div>
+                    <p style="margin:0; color:#64748b;">ဓာတုအင်ဂျင်နီယာ ဘာသာရပ်ဖြင့် ဘွဲ့ရရှိခဲ့ပြီး လုပ်ငန်းခွင်ခရီးစဉ်ကို စတင်ခဲ့သည်။</p>
                 </div>
             </div>
         </section>
 
-        <!-- Section 4: Photo Gallery (အမှတ်တရ ဓာတ်ပုံမှတ်တမ်းကဏ္ဍ) -->
-        <section style="margin-top: 60px;">
-            <h2 class="section-title">Photo Archives (ဓာတ်ပုံမှတ်တမ်း)</h2>
-            <p style="color: var(--text-muted); margin-bottom: 20px;">*ပုံများကို `images` folder ထဲထည့်ပြီးပါက အောက်ပါအတိုင်း လှပစွာ ပေါ်လာမည် ဖြစ်ပါသည်။</p>
-            
-            <div class="photo-gallery">
+        <!-- Section 4: Contact & Office (ဆက်သွယ်ရန်နှင့် ရုံးခန်း) -->
+        <section style="margin-top: 80px;">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
                 
-                <div class="photo-item">
-                    <img src="images/russia-study.jpg" alt="Russia Study">
-                    <div class="photo-overlay">ရုရှားနိုင်ငံ ပညာတော်သင်ကာလ (၂၀၁၂-၂၀၁၄)</div>
-                </div>
-
-                <div class="photo-item">
-                    <img src="images/china-study.jpg" alt="China Study">
-                    <div class="photo-overlay">တရုတ်နိုင်ငံ ပညာတော်သင်ကာလ (၂၀၀၆-၂၀၀၇)</div>
-                </div>
-
-                <div class="photo-item">
-                    <img src="images/family-photo.jpg" alt="Family Memory">
-                    <div class="photo-overlay">ချစ်လှစွာသော မိသားစုနှင့် အမှတ်တရ</div>
-                </div>
-
-                <div class="photo-item">
-                    <img src="images/military-life.jpg" alt="Military Service">
-                    <div class="photo-overlay">ဂုဏ်ယူဖွယ်ရာ တပ်မတော် တာဝန်ထမ်းဆောင်မှု</div>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- Section 5: Family Heritage -->
-        <section style="margin-top: 60px;">
-            <h2 class="section-title">Family Heritage</h2>
-            <div class="family-section">
-                <p style="margin-top: 0; font-weight: 600; color: var(--primary-dark); font-size: 1.1rem;">၂၀၀၆ ခုနှစ်တွင် အိမ်ထောင်ကျခဲ့ပြီး သမီးရတနာ ၂ ဦး ထွန်းကားခဲ့သော သာယာပျော်ရွှင်ဖွယ် မိသားစုဘဝ။</p>
-                <div class="family-grid">
-                    <div class="family-member">
-                        <h4>Daw Thida Aung (ဇနီး)</h4>
-                        <p style="margin:0; color:var(--text-muted);">မန္တလေးသူနာပြုတက္ကသိုလ်မှ Bachelor of Nursing Science (B.N.Sc) ဘွဲ့ရရှိထားသော ပညာရှင်တစ်ဦး ဖြစ်ပါသည်။</p>
+                <!-- ဘယ်ဘက်ခြမ်း - ရုံးခန်းလိပ်စာနှင့် အချက်အလက်များ -->
+                <div class="office-info">
+                    <h3>Executive Liaison Address</h3>
+                    <p>လုပ်ငန်းဆိုင်ရာ ပရောဂျက်များ၊ နည်းပညာ ဆွေးနွေးမှုများနှင့် လက်လီလက်ကား ကုန်သွယ်မှု ကိစ္စရပ်များအတွက် အောက်ပါရုံးခန်းလိပ်စာအတိုင်း တိုက်ရိုက် ဆက်သွယ်နိုင်ပါသည်။</p>
+                    
+                    <div class="office-details">
+                        <div class="office-item">
+                            <strong>📍 Head Office Location</strong>
+                            ခရေပင်လမ်းမကြီး၊ (မြို့နယ်အမည်ထည့်ရန်)၊ ရန်ကုန်မြို့၊ မြန်မာနိုင်ငံ။
+                        </div>
+                        <div class="office-item">
+                            <strong>✉️ Secure Business Email</strong>
+                            shwenyar777@github.io
+                        </div>
+                        <div class="office-item">
+                            <strong>🕒 Office Hours</strong>
+                            Monday – Friday : 9:00 AM – 5:00 PM (GMT +6:30)
+                        </div>
                     </div>
-                    <div class="family-member">
-                        <h4>ချစ်သမီးရတနာ နှစ်ဦး</h4>
-                        <p style="margin: 0 0 8px 0; font-size: 0.95rem; color:var(--text-muted);">• <strong>မဆုစန္ဒီဇော်</strong> (Hsu Sandy Zaw)</p>
-                        <p style="margin: 0; font-size: 0.95rem; color:var(--text-muted);">• <strong>မမေသရဖူ</strong> (May Thara Phu)</p>
+
+                    <div class="family-badge">
+                        Family Heritage: ၂၀၀၆ ခုနှစ်တွင် ဒေါ်သီတာအောင် (B.N.Sc) နှင့် အိမ်ထောင်ကျခဲ့ပြီး၊ သမီးကြီး မဆုစန္ဒီဇော် (၂၀၀၈) နှင့် သမီးငယ် မမေသရဖူ (၂၀၁၀) တို့နှင့်အတူ သာယာသော မိသားစုဘဝကို တည်ဆောက်ထားပါသည်။
                     </div>
                 </div>
+
+                <!-- ညာဘက်ခြမ်း - အလုပ်လုပ်သော Premium Form -->
+                <!-- မှတ်ချက်- (https://formspree.io/f/your_id) တွင် မိမိ Formspree ID ထည့်ပါက သင့် Gmail ထဲသို့ စာတိုက်ရိုက်ဝင်မည် ဖြစ်ပါသည် -->
+                <form class="contact-form" action="https://formspree.io/f/sample_id" method="POST">
+                    <div class="form-group">
+                        <label>Your Executive Name</label>
+                        <input type="text" name="name" placeholder="သင့်အမည်" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Official Email Address</label>
+                        <input type="email" name="email" placeholder="သင့်အီးမေးလ်" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Message Details</label>
+                        <textarea name="message" rows="6" placeholder="ဆွေးနွေးလိုသည့် အကြောင်းအရာများကို ရေးသားပါ..." required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Official Brief</button>
+                </form>
+
             </div>
         </section>
 
@@ -390,7 +417,7 @@
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 shwenyar777. All rights reserved. | Powered by GitHub Pages</p>
+        <p>© 2026 shwenyar777. All rights reserved. | Executive Developer Portfolio</p>
     </footer>
 
 </body>
