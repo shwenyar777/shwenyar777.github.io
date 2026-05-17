@@ -3,31 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Personal Profile</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Executive Portfolio | Chemical Engineer & Military Officer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-dark: #1a252f;
+            --accent-gold: #b38f4d;
+            --text-dark: #2c3e50;
+            --text-muted: #7f8c8d;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-dark);
+            background-color: #ffffff;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, #2c3e50 100%);
+            color: white;
+            padding: 100px 20px 80px;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            margin: 0 0 10px;
+            letter-spacing: -1px;
+            font-weight: 700;
+        }
+        .hero .subtitle {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            margin: 0 0 20px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .hero p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Container & Global Styles */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-dark);
+            border-bottom: 2px solid var(--accent-gold);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Executive Brief */
+        .brief-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        .brief-card {
+            background: var(--light-bg);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary-dark);
+        }
+        .brief-card h3 {
+            margin: 0 0 10px;
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+        }
+        .brief-card p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Timeline (Education & International) */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+            border-left: 2px solid #e2e8f0;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -36px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            border: 4px solid white;
+            box-shadow: 0 0 0 2px var(--primary-dark);
+        }
+        .timeline-date {
+            font-weight: 700;
+            color: var(--accent-gold);
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 0 5px;
+            color: var(--primary-dark);
+        }
+        .timeline-desc {
+            margin: 0;
+            color: var(--text-muted);
+        }
+
+        /* Industrial Expertise Grid */
+        .factory-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+        .factory-card {
+            border: 1px solid #e2e8f0;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+            background: #fff;
+        }
+        .factory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            border-color: var(--accent-gold);
+        }
+        .factory-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        .factory-card h4 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+        }
+
+        /* Family Heritage Style */
+        .family-section {
+            background: var(--light-bg);
+            border-radius: 16px;
+            padding: 40px;
+            margin-top: 20px;
+        }
+        .family-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        .family-member {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+        .family-member h4 {
+            margin: 0 0 8px;
+            color: var(--primary-dark);
+            font-size: 1.15rem;
+        }
+        .family-member p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: #a0aec0;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+            border-top: 3px solid var(--accent-gold);
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .family-grid { grid-template-columns: 1fr; }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="profile-card">
-        <!-- မိမိပုံရှိလျှင် images folder ဆောက်ပြီး ထည့်နိုင်ပါသည် -->
-        <div class="avatar">👨‍💻</div> 
-        <h1>မင်္ဂလာပါ၊ ကျွန်တော့်အမည် သက်စိုးခိုင် ဖြစ်ပါတယ်</h1>
-        <p class="title">Web Developer & Entrepreneur</p>
-        <p class="bio">နည်းပညာနှင့် စီးပွားရေးဆိုင်ရာ ဝဘ်ဆိုဒ်များကို VS Code, HTML, CSS များအသုံးပြု၍ စနစ်တကျ ဖန်တီးတည်ဆောက်ပေးနေသူ ဖြစ်ပါသည်။</p>
-        
-        <div class="skills">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-            <span>Git & GitHub</span>
-        </div>
+    <!-- Hero Header -->
+    <header class="hero">
+        <h1>Chemical Engineer & Military Executive</h1>
+        <div class="subtitle">Official Profile Portfolio</div>
+        <p>၂၅ နှစ်ကျော် စစ်ဘက်ဆိုင်ရာ တာဝန်ထမ်းဆောင်မှု အတွေ့အကြုံနှင့်အတူ နိုင်ငံတကာ ပညာတော်သင် ကဏ္ဍများနှင့် ကုန်ထုတ်လုပ်မှု စက်ရုံကြီးများတွင် စီမံခန့်ခွဲမှု အတွေ့အကြုံရင့် အရာရှိကြီးတစ်ဦး၏ ပရော်ဖက်ရှင်နယ် ကိုယ်ရေးမှတ်တမ်း။</p>
+    </header>
 
-        <div class="links">
-            <a href="https://github.com/သင့်Username" target="_blank">GitHub</a>
-            <a href="mailto:mr.thetsoekhaing@gmail.com">Contact Me</a>
-        </div>
-    </div>
+    <main class="container">
+
+        <!-- Section 1: Executive Summary -->
+        <section>
+            <h2 class="section-title">Executive Summary</h2>
+            <div class="brief-grid">
+                <div class="brief-card">
+                    <h3>စစ်ဘက်ဆိုင်ရာ သက်တမ်း</h3>
+                    <p>တပ်မတော်တွင် <strong>၂၅ နှစ်ကျော်</strong> ဂုဏ်သိက္ခာရှိစွာ တာဝန်ထမ်းဆောင်ခဲ့ပြီး လက်ရှိအချိန်ထိ သစ္စာရှိစွာ ဆက်လက်ထမ်းဆောင်ဆဲ ဖြစ်ပါသည်။</p>
+                </div>
+                <div class="brief-card">
+                    <h3>အင်ဂျင်နီယာ ကျွမ်းကျင်မှု</h3>
+                    <p><strong>၂၀၀၄ ခုနှစ်</strong>တွင် <strong>Chemical Engineering</strong> ဘွဲ့ကို အောင်မြင်စွာ ရရှိခဲ့ပြီး ကုန်ထုတ်လုပ်မှု နည်းပညာပိုင်းတွင် အထူးပြုပါသည်။</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Education & International Experience -->
+        <section style="margin-top: 60px;">
+            <h2 class="section-title">Education & Global Milestones</h2>
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">2012 - 2014</div>
+                    <div class="timeline-title">ရုရှားနိုင်ငံ ပညာတော်သင် အတွေ့အကြုံ</div>
+                    <p class="timeline-desc">ရုရှားနိုင်ငံတွင် အဆင့်မြင့် နည်းပညာနှင့် အင်ဂျင်နီယာဆိုင်ရာ ဘာသာရပ်များကို သွားရောက်လေ့လာ ဆည်းပူးခဲ့သည့် ပြည်ပအတွေ့အကြုံ။</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2006 - 2007</div>
+                    <div class="timeline-title">တရုတ်နိုင်ငံ ပညာတော်သင် အတွေ့အကြုံ</div>
+                    <p class="timeline-desc">နိုင်ငံတကာ ကုန်ထုတ်လုပ်မှုနှင့် နည်းပညာ ဗဟုသုတများ ပေါင်းစပ်နိုင်ရန် တရုတ်ပြည်သူ့သမ္မတနိုင်ငံတွင် သွားရောက်လေ့လာခဲ့သည်။</p>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">2004</div>
+                    <div class="timeline-title">Bachelor of Engineering (Chemical Engineering)</div>
+                    <p class="timeline-desc">ဓာတုအင်ဂျင်နီယာ ဘာသာရပ်ဖြင့် ဘွဲ့ရရှိခဲ့ပြီး စက်မှုကုန်ထုတ်လုပ်ငန်းဆိုင်ရာ အခြေခံကောင်းများကို စတင်ခဲ့သည်။</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section 3: Industrial Operations (Managerial Experience) -->
+        <section style="margin-top: 60px;">
+            <h2 class="section-title">Industrial Operations</h2>
+            <p style="margin-bottom: 30px; color: var(--text-muted);">အောက်ပါ ကုန်ထုတ်လုပ်မှု စက်ရုံကြီးများတွင် <strong>Manager (Special Officer)</strong> အဖြစ် စီမံခန့်ခွဲမှု၊ ကုန်ထုတ်လုပ်မှု အရည်အသွေး ထိန်းချုပ်မှုများကို တာဝန်ယူ ခဲ့ပါသည်။</p>
+            
+            <div class="factory-grid">
+                <div class="factory-card">
+                    <span class="factory-icon">🎨</span>
+                    <h4>Paint Manufacturing</h4>
+                </div>
+                <div class="factory-card">
+                    <span class="factory-icon">🏭</span>
+                    <h4>Textile Mill</h4>
+                </div>
+                <div class="factory-card">
+                    <span class="factory-icon">👞</span>
+                    <h4>Footwear Factory</h4>
+                </div>
+                <div class="factory-card">
+                    <span class="factory-icon">💧</span>
+                    <h4>Waterproof Factory</h4>
+                </div>
+                <div class="factory-card">
+                    <span class="factory-icon">🎒</span>
+                    <h4>Leather Production</h4>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Family Heritage -->
+        <section style="margin-top: 60px;">
+            <h2 class="section-title">Family Heritage</h2>
+            <div class="family-section">
+                <p style="margin-top: 0; font-weight: 600; color: var(--primary-dark);">၂၀၀၆ ခုနှစ်တွင် အိမ်ထောင်ကျခဲ့ပြီး သာယာပျော်ရွှင်သော မိသားစုဘဝကို တည်ဆောက်ခဲ့ပါသည်။</p>
+                <div class="family-grid">
+                    <div class="family-member">
+                        <h4>Daw Thida Aung (ဇနီး)</h4>
+                        <p>မန္တလေးသူနာပြုတက္ကသိုလ်မှ Bachelor of Nursing Science (B.N.Sc) ဘွဲ့ရရှိထားသည့် ကျန်းမာရေးပညာရှင် ဖြစ်ပါသည်။</p>
+                    </div>
+                    <div class="family-member">
+                        <h4>သမီးရတနာ ၂ ဦး</h4>
+                        <p style="margin-bottom: 8px;">• <strong>မဆုစန္ဒီဇော်</strong> (သမီးကြီး - ၂၀၀၈ ခုနှစ်ဖွား)</p>
+                        <p style="margin-top: 0;">• <strong>မမေသရဖူ</strong> (သမီးငယ် - ၂၀၁၀ ခုနှစ်ဖွား)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 shwenyar777. All rights reserved. | Powered by GitHub Pages</p>
+    </footer>
 
 </body>
 </html>
